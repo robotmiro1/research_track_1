@@ -28,5 +28,3 @@ Guide)
 
 ## Solution Proposals 
 
-1. Create a new package, in which you will develop three nodes:
-    - (a) A node that implements an action client, allowing the user to set a target (x, y) or to cancel it. The node also publishes the robot position and velocity as a custom message (x,y, vel_x, vel_z), by relying on the values published on the topic /odom. Please consider that, if you cannot implement everything in the same node, you can also develop two different nodes, one implementing the user interface and one implementing the publisher of the custom message.
