@@ -27,8 +27,6 @@ class UserInterface:
 
         self.user_x_coord = 0.0
         self.user_y_coord = 0.0
-        self.goal_reached = 0
-        self.goal_cancelled = 0
 
     def _get_user_command(self) -> None:
         print(UserInterface.PROMPT)
@@ -59,7 +57,6 @@ class UserInterface:
 
         if self.reaching_client.get_state() == actionlib.GoalStatus.ACTIVE:
             self.reaching_client.cancel_goal()
-            self.goal_cancelled += 1
 
     def _pub_robot_state(self, odom_msg):
         # Position
