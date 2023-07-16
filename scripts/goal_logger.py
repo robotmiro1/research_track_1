@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 import rospy
 
+# importing the require ros message types 
 from assignment_2_2022.msg import PlanningActionFeedback
 from std_srvs.srv import Trigger, TriggerResponse
-
-test = PlanningActionFeedback()
 
 
 class GoalLogger:

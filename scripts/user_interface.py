@@ -1,18 +1,25 @@
 #!/usr/bin/env python3
 
+# import the ros api
 import rospy
-
 import actionlib
+
+# importing the required ros message types
 import assignment_2_2022.msg
 from nav_msgs.msg import Odometry
 from research_track_1.msg import MyRobotOdom
 
 
 class UserInterface:
+    """A node that allows a user to set the target (x, y) or to cancel it. The node also
+    publishes the robot position and velocity as a custom message (x, y, vel_x, vel_z)
+    by relying on the values published on the topic `/odom`
+    """
+
     PROMPT = "Welcome to the User Interface created for the Research Track 1 Project\n"
 
     def __init__(self) -> None:
-        # TODO Initialilze the Simple Action Client
+        # Initialilze the Simple Action Client
         self.reaching_client = actionlib.SimpleActionClient(
             "/reaching_goal", assignment_2_2022.msg.PlanningAction
         )
@@ -20,6 +27,7 @@ class UserInterface:
         # Initialize the subscriber for odometry topic
         rospy.Subscriber("/odom", Odometry, self._pub_robot_state)
 
+        # Initialize the publisher for custom message
         self.robot_state_pub = rospy.Publisher(
             "robot_state", MyRobotOdom, queue_size=10
         )
@@ -27,7 +35,7 @@ class UserInterface:
 
         self.user_x_coord = 0.0
         self.user_y_coord = 0.0
-        self.trial = 0
+        self.trial = 0 # to count the amount of time the user enters the wrong command
         self.timeout = rospy.Duration(1)
         print(UserInterface.PROMPT)
         while True:
@@ -36,6 +44,7 @@ class UserInterface:
             self._get_user_command()
 
     def _get_user_command(self) -> None:
+        """This method takes input of the user command and saves it as a property in the class"""
         self.user_action = input(
             "\nEnter 1 to set a new goal, 2 to cancel an ongoing goal, 3 to quit the interface: "
         )
@@ -56,6 +65,9 @@ class UserInterface:
             print(f"Failed Trial {self.trial} out of 3\n")
 
     def _send_reaaching_goal(self):
+        """This method sends the target set by the user to the `reachine_goal` action
+        server.
+        """
         # wait for the action server.
         # if (self.reaching_client.wait_for_server(timeout=self.timeout)):
         self.reaching_client.wait_for_server(timeout=self.timeout)
@@ -71,12 +83,21 @@ class UserInterface:
         #     print(f"The goal failed to send because the server is not yet available.")
 
     def _cancel_reaching_goal(self):
+        """This method sends a cancel signal to the reaching_goal action server to
+        preempt a goal
+        """
         # wait for the action server.
         self.reaching_client.wait_for_server(timeout=self.timeout)
         if self.reaching_client.get_state() == actionlib.GoalStatus.ACTIVE:
             self.reaching_client.cancel_goal()
 
     def _pub_robot_state(self, odom_msg):
+        """This method publishes the robot position and velocity on a topic as a custom
+        message type
+
+        Args:
+            odom_msg (MyRobotOdom): the position and velocity of the robot
+        """
         # Position
         self.robot_state.x = odom_msg.pose.pose.position.x
         self.robot_state.y = odom_msg.pose.pose.position.y
@@ -87,6 +108,7 @@ class UserInterface:
 
         # Publish the robot state message
         self.robot_state_pub.publish(self.robot_state)
+
 
 if __name__ == "__main__":
     rospy.init_node("user_interface")
