@@ -25,6 +25,33 @@ Guide)
 - In case you are participating in the 2° exam session, the deadline is postponed to 26/01/2023
 
 ## Description of the Solution Nodes
+### (A) User Interface 
+
+*__file_name__: user_interface.py*
+
+This node gives a prompt to the user to do one of three commands; 
+
+* Send goal 
+* Cancel goal 
+* Quit the Interface
+
+if `send goal` is being selected, the interface then give a prompt to enter the x and y coordinate which the robot is required to navigate to. if `cancel goal` is being selected, it sends a cancel signal to the `reaching_goal` action server. Before doing this, it makes a check to see if the `reaching_goal` status is `ACTIVE`, if it is, it sends the cancel signal, otherwise, it does nothing. if quit interface is being selected, the `user_interface` node exit safely. *This nodes command request is put in a loop, therefore, the user can send nfinite amount of commands through the user interface, and when the user is done, the user must enter the third command to end the user interface safely. 
+
+
+
+### (B) Goal Logger
+
+*__file_name__: goal_logger.py*
+
+This node subscribes to the `/reaching_goal/feedback` action feedback topic, and gets the status of the goal from the `stat` property of the message, it then uses this value to increment the value of `goal_reached` and `goal_cancelled`. The node provides a service `/goal_logger`, which when called prints and send the details of the number of goals reached and the number of goals cancelled. 
+
+
+### (C) Robot State Node
+
+*__file_name__: robot_state_pub.py*
+
+This node subscribes to the topic `robot_state` of the custom message which contains the position (x, y) and the velocity (vel_x, vel_z). It also subscribes to the `/reaching_goal/goal` goal topic of the reaching goal action, to get the target positon in which the robot is to navigate to. It then uses this information to calculate the distance of the robot to the target. Given a set frequency from the `/pub_speed` parameter server, it prints this information with the said frequency.  
+
 
 
 ## Installation and Running Procedure
