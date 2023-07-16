@@ -4,6 +4,7 @@ import rospy
 from assignment_2_2022.msg import PlanningActionFeedback
 from std_srvs.srv import Trigger, TriggerResponse
 
+test = PlanningActionFeedback()
 
 class GoalLogger:
     def __init__(self) -> None:
@@ -18,9 +19,9 @@ class GoalLogger:
         rospy.spin()
     
     def _goal_logger(self, goal_feedback):
-        if goal_feedback.stat == "Target reached!":
+        if goal_feedback.feedback.stat == "Target reached!":
             self.goal_reached += 1
-        elif goal_feedback.stat == "Target cancelled!":
+        elif goal_feedback.feedback.stat == "Target cancelled!":
             self.goal_cancelled += 1
 
     def _print_goal_log(self, dummy):
