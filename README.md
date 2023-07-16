@@ -24,7 +24,8 @@ Guide)
 - Deadline: 09/01/2023
 - In case you are participating in the 2° exam session, the deadline is postponed to 26/01/2023
 
-## Description of the Software Architecture
+## Description of the Solution Nodes
+
 
 ## Installation and Running Procedure
 
