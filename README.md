@@ -100,3 +100,5 @@ source ~/catkin_ws/devel/setup.bash
 rosrun research_track_1 user_interface.py
 ```
 follow the instructions on the user interface to send commands to the controller. 
+
+[Click Here](https://robotmiro1.github.io/research_track_1/) to view the html documentation of the project...
