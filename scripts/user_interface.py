@@ -1,5 +1,26 @@
 #!/usr/bin/env python3
 
+"""
+.. module:: user_interface
+    :platform: Unix
+    :synopsis: A python module that allows the user send commands to the robot controller
+
+.. moduleauthor:: Amanzhol Raisov cornytravel@gmail.com
+
+A python module that allows a user to set the target (x, y) or to cancel it. The node also
+publishes the robot position and velocity as a custom message (x, y, vel_x, vel_z)
+by relying on the values published on the topic `/odom`
+
+Action Client:
+    `/reaching_goal`
+
+Subscribes to:
+    `/odom`
+
+Publisher:
+    `robot_state`
+"""
+
 # import the ros api
 import rospy
 import actionlib

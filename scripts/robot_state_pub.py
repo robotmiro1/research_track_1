@@ -1,5 +1,23 @@
 #!/usr/bin/env python3
 
+"""
+.. module:: robot_state_pub
+    :platform: Unix
+    :synopsis: Prints distance of robot to the target and the average velocity of robot
+
+.. moduleauthor:: Amanzhol Raisov cornytravel@gmail.com
+
+This module subscribes to the robot's position and velocity (using a custom message
+and prints the distance of the robot from the target and the robot's average speed.
+
+Subscribes to:
+    `/reaching_goal/feedback`
+    `/robot_state`
+
+Parameter Server:
+    `/pub_speed`
+"""
+
 import rospy
 from math import sqrt
 

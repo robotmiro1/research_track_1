@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Research Track 2 documentation! &mdash; Research Track 2 Documentation 1.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Research Track 2 Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to Research Track 2 documentation!</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a><ul>
+<li><a class="reference internal" href="#module-user_interface">User Interface</a></li>
+<li><a class="reference internal" href="#module-goal_logger">Goal Logger</a></li>
+<li><a class="reference internal" href="#module-robot_state_pub">Robot State Publisher</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Research Track 2 Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to Research Track 2 documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="welcome-to-research-track-2-documentation">
+<h1>Welcome to Research Track 2 documentation!<a class="headerlink" href="#welcome-to-research-track-2-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+<div class="section" id="module-user_interface">
+<span id="user-interface"></span><h2>User Interface<a class="headerlink" href="#module-user_interface" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-user_interface"></span><p>A python module that allows a user to set the target (x, y) or to cancel it. The node also
+publishes the robot position and velocity as a custom message (x, y, vel_x, vel_z)
+by relying on the values published on the topic <cite>/odom</cite></p>
+<dl class="docutils">
+<dt>Action Client:</dt>
+<dd><cite>/reaching_goal</cite></dd>
+<dt>Subscribes to:</dt>
+<dd><cite>/odom</cite></dd>
+<dt>Publisher:</dt>
+<dd><cite>robot_state</cite></dd>
+</dl>
+<dl class="class">
+<dt id="user_interface.UserInterface">
+<em class="property">class </em><code class="descclassname">user_interface.</code><code class="descname">UserInterface</code><a class="reference internal" href="_modules/user_interface.html#UserInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#user_interface.UserInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>A node that allows a user to set the target (x, y) or to cancel it. The node also
+publishes the robot position and velocity as a custom message (x, y, vel_x, vel_z)
+by relying on the values published on the topic <cite>/odom</cite></p>
+<dl class="method">
+<dt id="user_interface.UserInterface._cancel_reaching_goal">
+<code class="descname">_cancel_reaching_goal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/user_interface.html#UserInterface._cancel_reaching_goal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#user_interface.UserInterface._cancel_reaching_goal" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method sends a cancel signal to the reaching_goal action server to
+preempt a goal</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="user_interface.UserInterface._get_user_command">
+<code class="descname">_get_user_command</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/user_interface.html#UserInterface._get_user_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#user_interface.UserInterface._get_user_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method takes input of the user command and saves it as a property in the class</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="user_interface.UserInterface._pub_robot_state">
+<code class="descname">_pub_robot_state</code><span class="sig-paren">(</span><em>odom_msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user_interface.html#UserInterface._pub_robot_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#user_interface.UserInterface._pub_robot_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method publishes the robot position and velocity on a topic as a custom
+message type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>odom_msg</strong> (<em>MyRobotOdom</em>) – the position and velocity of the robot</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="user_interface.UserInterface._send_reaaching_goal">
+<code class="descname">_send_reaaching_goal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/user_interface.html#UserInterface._send_reaaching_goal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#user_interface.UserInterface._send_reaaching_goal" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method sends the target set by the user to the <cite>reachine_goal</cite> action
+server.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-goal_logger">
+<span id="goal-logger"></span><h2>Goal Logger<a class="headerlink" href="#module-goal_logger" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-goal_logger"></span><p>This module subcribes to the action client message <cite>reaching_goal/feedback</cite>,
+it then use the messages on this topic to log the number of goals that is
+reached and the number of goals that is cancelled. The node initializes a
+ros server with the name <cite>/goal_logger</cite>, when a request is being sent to this
+server, it prints the value of the number of goals reached and cancel that has
+already been logged.</p>
+<dl class="docutils">
+<dt>Subscribes to:</dt>
+<dd><cite>/reaching_goal/feedback</cite></dd>
+<dt>Service:</dt>
+<dd><cite>/goal_logger</cite></dd>
+</dl>
+<dl class="class">
+<dt id="goal_logger.GoalLogger">
+<em class="property">class </em><code class="descclassname">goal_logger.</code><code class="descname">GoalLogger</code><a class="reference internal" href="_modules/goal_logger.html#GoalLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#goal_logger.GoalLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logs the number of goals that are reached and the number of goals that are
+cancelled.</p>
+<dl class="method">
+<dt id="goal_logger.GoalLogger._goal_logger">
+<code class="descname">_goal_logger</code><span class="sig-paren">(</span><em>goal_feedback</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/goal_logger.html#GoalLogger._goal_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#goal_logger.GoalLogger._goal_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>A callback function that gets the feedback from the <cite>reaching_goal</cite>
+action, it then takes the stats of the target reached and target cancelled
+and saves it in the appropriate property of the class</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>goal_feedback</strong> (<em>PlanningActionFeedback</em>) – an object that contains the stat
+data of the number of target reached and target cancelled</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="goal_logger.GoalLogger._print_goal_log">
+<code class="descname">_print_goal_log</code><span class="sig-paren">(</span><em>dummy</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/goal_logger.html#GoalLogger._print_goal_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#goal_logger.GoalLogger._print_goal_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>A callback function that prints the stats of goals reached and goals
+cancelled when triggered</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dummy</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – it’s an empty string, just used for the trigger</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the response of the stats of the number of goals reached and cancelled</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-robot_state_pub">
+<span id="robot-state-publisher"></span><h2>Robot State Publisher<a class="headerlink" href="#module-robot_state_pub" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-robot_state_pub"></span><p>This module subscribes to the robot’s position and velocity (using a custom message
+and prints the distance of the robot from the target and the robot’s average speed.</p>
+<dl class="docutils">
+<dt>Subscribes to:</dt>
+<dd><cite>/reaching_goal/feedback</cite>
+<cite>/robot_state</cite></dd>
+<dt>Parameter Server:</dt>
+<dd><cite>/pub_speed</cite></dd>
+</dl>
+<dl class="class">
+<dt id="robot_state_pub.OdomPublisher">
+<em class="property">class </em><code class="descclassname">robot_state_pub.</code><code class="descname">OdomPublisher</code><a class="reference internal" href="_modules/robot_state_pub.html#OdomPublisher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#robot_state_pub.OdomPublisher" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class subscribes to the robot’s position and velocity (using the
+custom message) and prints the distance of the robot from the target and
+the robot’s average speed.)</p>
+<dl class="method">
+<dt id="robot_state_pub.OdomPublisher._get_distance_to_target">
+<code class="descname">_get_distance_to_target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/robot_state_pub.html#OdomPublisher._get_distance_to_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#robot_state_pub.OdomPublisher._get_distance_to_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method calculates the distance of the robot to the set
+target.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the value of the distance of the robot to the target</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="robot_state_pub.OdomPublisher._get_new_target">
+<code class="descname">_get_new_target</code><span class="sig-paren">(</span><em>goal</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/robot_state_pub.html#OdomPublisher._get_new_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#robot_state_pub.OdomPublisher._get_new_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>The is a callback function that gets the target send to the
+<cite>reaching_goal</cite> action server and saves it as a parameter in the class</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>goal</strong> (<em>PlanningActionGoal</em>) – the goal sent from the user interface as
+the target to be reached.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="robot_state_pub.OdomPublisher._get_robot_state">
+<code class="descname">_get_robot_state</code><span class="sig-paren">(</span><em>robot_state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/robot_state_pub.html#OdomPublisher._get_robot_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#robot_state_pub.OdomPublisher._get_robot_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a callback function that gets the robot (x, y) coordinates,
+and the average speed of the robot and saves it as a property in the class</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>robot_state</strong> (<em>MyRobotOdom</em>) – the position and velocity of the robot</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="robot_state_pub.OdomPublisher._print_status_report">
+<code class="descname">_print_status_report</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/robot_state_pub.html#OdomPublisher._print_status_report"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#robot_state_pub.OdomPublisher._print_status_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>A method that prints a report with all the details about the status of the
+robot and the goal given by the user.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Amanzhol Raisov.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,8 +1,30 @@
 #!/usr/bin/env python3
+
+"""
+.. module:: goal_logger
+    :platform: Unix
+    :synopsis: Python module that logs the goal reached and cancelled
+
+.. moduleauthor:: Amanzhol Raisov cornytravel@gmail.com
+
+This module subcribes to the action client message `reaching_goal/feedback`,
+it then use the messages on this topic to log the number of goals that is
+reached and the number of goals that is cancelled. The node initializes a
+ros server with the name `/goal_logger`, when a request is being sent to this
+server, it prints the value of the number of goals reached and cancel that has
+already been logged.
+
+Subscribes to:
+    `/reaching_goal/feedback`
+
+Service:
+    `/goal_logger`
+"""
+
 import rospy
 
 # importing the require ros message types 
-from assignment_2_2022.msg import PlanningActionFeedback
+from assignment_2_2022.msg import PlanningActionFeedback 
 from std_srvs.srv import Trigger, TriggerResponse
 
 
